@@ -1,0 +1,206 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://FontTheme_StartScreen,40.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Color Sorting/Game/end_rect.png" type="Texture" id=2]
+[ext_resource path="res://FontTheme_StartScreen.tres" type="DynamicFont" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 150.0
+margin_top = 315.0
+margin_right = 569.0
+margin_bottom = 708.0
+custom_constants/separation = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 419.0
+margin_bottom = 208.0
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/VBoxContainer/MarginContainer"]
+margin_right = 419.0
+margin_bottom = 208.0
+texture = ExtResource( 2 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
+margin_right = 419.0
+margin_bottom = 208.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 399.0
+margin_bottom = 188.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Categorie" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 168.0
+
+[node name="Time" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Categorie"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 200.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 3 )
+text = "Time:"
+
+[node name="Moves" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Categorie"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 86.0
+margin_right = 200.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 3 )
+text = "Moves:"
+
+[node name="Stats" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
+margin_left = 250.0
+margin_right = 379.0
+margin_bottom = 168.0
+
+[node name="TimeStat" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Stats"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 129.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 3 )
+text = "0:00"
+align = 2
+
+[node name="MovesStat" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Stats"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 86.0
+margin_right = 129.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 3 )
+text = "25"
+align = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 207.0
+margin_right = 419.0
+margin_bottom = 207.0
+
+[node name="Next_Level" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 206.0
+margin_right = 419.0
+margin_bottom = 269.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/VBoxContainer/Next_Level"]
+margin_right = 419.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next Level" type="Button" parent="CenterContainer/VBoxContainer/Next_Level"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 419.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 1 )
+text = "Next Level"
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Difficulty" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 268.0
+margin_right = 419.0
+margin_bottom = 331.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/VBoxContainer/Difficulty"]
+margin_right = 419.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Change_Difficultie" type="Button" parent="CenterContainer/VBoxContainer/Difficulty"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 419.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 1 )
+text = "Difficulty"
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Change_Game" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 330.0
+margin_right = 419.0
+margin_bottom = 393.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/VBoxContainer/Change_Game"]
+margin_right = 419.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_Selection" type="Button" parent="CenterContainer/VBoxContainer/Change_Game"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 419.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 1 )
+text = "Change Game"
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

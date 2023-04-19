@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Teppich Reinigen/cleaner.gd" type="Script" id=2]
+[ext_resource path="res://particles/particlePack_1.1/PNG (Transparent)/circle_02.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.124224, 0.242236, 0.354037, 0.453416, 0.559006, 0.670807, 0.757764, 0.832298, 0.875776, 0.89441, 0.956522 )
+colors = PoolColorArray( 0.960784, 0.74902, 1, 0.294118, 0.933333, 0.505882, 1, 0.45098, 0.827451, 0.415686, 0.764706, 0.729412, 0.87451, 0.305882, 0.658824, 0.866667, 0.996078, 0.34902, 0.207843, 0.745098, 0.992157, 0.576471, 0.333333, 0.858824, 0.929412, 0.32549, 0.815686, 0.623529, 0.65098, 0.266667, 0.952941, 0.843137, 0.945008, 0.146021, 0.958496, 0.879336, 1, 0.639216, 0.980392, 0.666667, 0.521569, 0.858824, 0.996078, 0.709804, 0.858824, 0.607843, 0.929412, 0.643137 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=10]
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 10 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0.048913, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.896739, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 15, 1 )
+flag_disable_z = true
+direction = Vector3( 1, -1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.02
+scale_curve = SubResource( 8 )
+color = Color( 0.972549, 0.309804, 0.843137, 0.352941 )
+color_ramp = SubResource( 5 )
+hue_variation_random = 1.0
+hue_variation_curve = SubResource( 6 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 12 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 7.62939e-06, 3.8147e-06 )
+scale = Vector2( 0.84, 0.847836 )
+amount = 25
+lifetime = 4.0
+process_material = SubResource( 9 )
+texture = ExtResource( 3 )
+
+[node name="Saugstab" type="Sprite" parent="."]
+position = Vector2( 0, 48 )
+scale = Vector2( 0.0624999, 1.125 )
+texture = ExtResource( 1 )
+
+[node name="Stabbutton" type="TouchScreenButton" parent="Saugstab"]
+position = Vector2( -32.0001, -32 )
+scale = Vector2( 3.13885, 3.18762 )
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Saugkopf" type="Sprite" parent="Area2D"]
+scale = Vector2( 0.75, 0.375 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="Kopfbutton" type="TouchScreenButton" parent="Area2D"]
+position = Vector2( 24, -12 )
+scale = Vector2( -2.40285, 1.20389 )
+shape = SubResource( 3 )
+
+[connection signal="pressed" from="Saugstab/Stabbutton" to="." method="_on_Stabbutton_pressed"]
+[connection signal="released" from="Saugstab/Stabbutton" to="." method="_on_Stabbutton_released"]
+[connection signal="pressed" from="Area2D/Kopfbutton" to="." method="_on_Kopfbutton_pressed"]
+[connection signal="released" from="Area2D/Kopfbutton" to="." method="_on_Kopfbutton_released"]

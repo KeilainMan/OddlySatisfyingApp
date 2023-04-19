@@ -1,0 +1,163 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://FontTheme_StartScreen,40.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Color Sorting/Game/Custom.gd" type="Script" id=2]
+
+[node name="CustomUI" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 215.0
+margin_top = 321.0
+margin_right = 505.0
+margin_bottom = 703.0
+custom_constants/separation = 35
+
+[node name="Row" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 290.0
+margin_bottom = 77.0
+
+[node name="RowSlider" type="HSlider" parent="VBoxContainer/Row"]
+margin_right = 290.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = 4.0
+max_value = 15.0
+value = 4.0
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Row"]
+margin_top = 20.0
+margin_right = 290.0
+margin_bottom = 77.0
+alignment = 1
+
+[node name="Rows" type="Label" parent="VBoxContainer/Row/HBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 143.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+text = "Rows"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RowsStat" type="Label" parent="VBoxContainer/Row/HBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 147.0
+margin_right = 290.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 112.0
+margin_right = 290.0
+margin_bottom = 189.0
+
+[node name="LineSlider" type="HSlider" parent="VBoxContainer/Line"]
+margin_right = 290.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = 4.0
+max_value = 15.0
+value = 4.0
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Line"]
+margin_top = 20.0
+margin_right = 290.0
+margin_bottom = 77.0
+alignment = 1
+
+[node name="Lines" type="Label" parent="VBoxContainer/Line/HBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 143.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+text = "Lines"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineStats" type="Label" parent="VBoxContainer/Line/HBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 147.0
+margin_right = 290.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colors" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 224.0
+margin_right = 290.0
+margin_bottom = 284.0
+custom_constants/margin_right = 60
+custom_constants/margin_left = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Colors"]
+margin_left = 60.0
+margin_right = 230.0
+margin_bottom = 60.0
+custom_constants/separation = 50
+
+[node name="Color1" type="ColorPickerButton" parent="VBoxContainer/Colors/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Color2" type="ColorPickerButton" parent="VBoxContainer/Colors/HBoxContainer"]
+margin_left = 110.0
+margin_right = 170.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CustomStartButton" type="Button" parent="VBoxContainer"]
+margin_top = 319.0
+margin_right = 290.0
+margin_bottom = 382.0
+custom_fonts/font = ExtResource( 1 )
+text = "Start"
+
+[connection signal="value_changed" from="VBoxContainer/Row/RowSlider" to="." method="_on_RowSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Line/LineSlider" to="." method="_on_LineSlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/CustomStartButton" to="." method="_on_CustomStartButton_pressed"]

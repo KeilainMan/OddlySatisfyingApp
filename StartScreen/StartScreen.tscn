@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://FontTheme_StartScreen.tres" type="DynamicFont" id=1]
+[ext_resource path="res://StartScreen/StartScreen.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopGap" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 720.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 0, 250 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterBox" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 254.0
+margin_right = 720.0
+margin_bottom = 342.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterBox"]
+margin_right = 720.0
+margin_bottom = 88.0
+
+[node name="LeftGap" type="MarginContainer" parent="VBoxContainer/CenterBox/HBoxContainer"]
+margin_right = 175.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterBox/HBoxContainer"]
+margin_left = 179.0
+margin_right = 540.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+
+[node name="GameModesButton" type="Button" parent="VBoxContainer/CenterBox/HBoxContainer/VBoxContainer"]
+margin_right = 361.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 1 )
+text = "GameModes"
+
+[node name="RightGap" type="MarginContainer" parent="VBoxContainer/CenterBox/HBoxContainer"]
+margin_left = 544.0
+margin_right = 720.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+
+[node name="BotGap" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 346.0
+margin_right = 720.0
+margin_bottom = 1024.0
+size_flags_vertical = 3
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/CenterBox/HBoxContainer/VBoxContainer/GameModesButton" to="." method="_on_GameModesButton_pressed"]
